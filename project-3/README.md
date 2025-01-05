@@ -7,7 +7,7 @@ This assignment must be completed in C++. It should be initiated as a command fr
 3. read or generate memory references from a file / randomly (there's a random generator in the code sample)
 4. compute the TLB hit rate and effective access time (EAT) for each run
 
-Code from class ( a good starting point - modify / use as needed ): https://github.butler.edu/npartenh/ctlb
+Code from class ( a good starting point - modify / use as needed ): https://github.butler.edu/npartenh/ctlb  
 Use `references.txt` as a sample input.
 
 # Sample Output
