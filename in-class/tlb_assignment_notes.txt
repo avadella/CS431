@@ -1,0 +1,32 @@
+set up TLB(4)
+
+//references are decimal in the input file
+//each ref is 16 bits/2 bytes
+//1 B vpn, 1 B offset
+0 - 65,535
+
+num_refers = 0;
+num_hits = 0;
+
+for ref in references:
+    //determine the vpn
+    num_refers = 1
+    vpn = ref >> 8          //shifting 8 bits
+    offset = ref & 0xff     //mask it and only keep the right mask side, bit mask 
+    //in the tlb?
+    if vpn in tlb:
+        num_hits = 1
+        //update tlb data as needed 
+    else:
+        //see if there's an empty spot
+        //usually there's not
+        //apply replacement polict to select and evict/replace an entry
+
+
+//values to use:
+0
+256
+512
+768
+1024 
+to check if TLB is being filled correctly and to test hit, just put the same value in over and over 

@@ -1,0 +1,26 @@
+CPP = g++
+CPPFLAGS = -Wall -O2 -g
+OBJFILES = main-memory.o memory.o mmu.o process.o page_table.o
+TARGET   = main-memory
+
+all: $(TARGET)
+
+$(TARGET): $(OBJFILES)
+	$(CPP) $(CPPFLAGS) -o $(TARGET) $(OBJFILES) $(LDFLAGS)
+
+format:
+	clang-format -i main-memory.cpp
+	clang-format -i memory.h
+	clang-format -i memory.cpp
+	clang-format -i process.h
+	clang-format -i process.cpp
+
+sanitize:
+	# https://github.com/google/sanitizers/wiki/AddressSanitizer
+	clang -fsanitize=address -O1 -fno-omit-frame-pointer -g
+
+valgrind: main
+	valgrind --tool=memcheck --leak-check=yes --show-reachable=yes --num-callers=20 --track-origins=yes --track-fds=yes ./$(TARGET)
+
+clean:
+	rm -f $(OBJFILES) $(TARGET) *~
