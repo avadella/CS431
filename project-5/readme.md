@@ -1,4 +1,4 @@
-# zipper 
+# Project 5: Zipper 
 
 `zipper` creates a basic zip file
 
